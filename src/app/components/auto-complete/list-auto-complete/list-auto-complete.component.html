@@ -1,0 +1,27 @@
+<div class="list-auto-complete">
+  @for (programmingLanguage of autoCompleteValue; track $index; let isLast = $last) {
+    <div (click)="selectTags(programmingLanguage)">
+        @if(getStyle(programmingLanguage)) {
+          <div class="item-list-auto-complete">
+            {{ programmingLanguage.programingLanguageName }} ✔️
+          </div>
+        } @else {
+
+          <div class="item-list-auto-complete">
+            {{ programmingLanguage.programingLanguageName }}
+          </div>
+        }
+
+      @if (!isLast) {
+        <hr>
+      }
+    </div>
+    } @empty {
+      <div class="not-found-item-list-auto-complete">
+        <p>
+          Programming language not found.
+        </p>
+        <p> You can add a new tag by pressing enter </p>
+      </div>
+    }
+  </div>

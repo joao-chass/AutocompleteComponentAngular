@@ -1,0 +1,38 @@
+@if(tagsSelected.length > 0) {
+  <h4>Tags:</h4>
+  <div class="row">
+    @for (tag of tagsSelected; track $index) {
+        <div class="tag-selected" (click)="removeTag(tag.programingLanguageName)">
+          {{tag.programingLanguageName}}
+          <div class="icon-tag">X</div>
+        </div>
+      }
+    </div>
+}
+
+<label class="label-auto-complete" >{{descriptionAutoComplete}}</label>
+
+<div class="group-input">
+  <input (keyup.enter)="onEnterKeyPress($event)" type="text" [(ngModel)]="inputAutoComplete" placeholder="Add a tag" class="input-auto-complete" (keyup)="searchprogrammingLanguage()" (click)="clickShowList()">
+  @if(showClearButton){
+    <span class="input-group-clear" (click)="clearnput()">
+      <div class="icon-tag">X</div>
+    </span>
+  }
+</div>
+
+@if (showList) {
+  @defer (when showList) {
+  <app-list-auto-complete [autoCompleteValue]="autoCompleteValue" [tagsSelected]="tagsSelected" (selectTag)="selectTag($event)"/>
+  }
+}
+
+@if(showAlert){
+  <div   class="container-alert">
+    <div [ngClass]="{'alert-msg-delete': typeAlert === 'delete', 'alert-msg-warning' : typeAlert === 'warning' }" class="alert-msg">
+      {{alert}}
+    </div>
+  </div>
+}
+
+
