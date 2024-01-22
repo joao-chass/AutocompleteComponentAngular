@@ -15,7 +15,7 @@
 <div class="group-input">
   <input (keyup.enter)="onEnterKeyPress($event)" type="text" [(ngModel)]="inputAutoComplete" placeholder="Add a tag" class="input-auto-complete" (keyup)="searchprogrammingLanguage()" (click)="clickShowList()">
   @if(showClearButton){
-    <span class="input-group-clear" (click)="clearnput()">
+    <span class="input-group-clear" (click)="clearInput()">
       <div class="icon-tag">X</div>
     </span>
   }

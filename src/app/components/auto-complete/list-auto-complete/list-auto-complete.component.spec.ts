@@ -11,7 +11,7 @@ describe('ListAutoCompleteComponent', () => {
       imports: [ListAutoCompleteComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ListAutoCompleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +19,12 @@ describe('ListAutoCompleteComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should find Tag, with diferent case', () => {
+    component.tagsSelected = [{programingLanguageName: 'JavaScript'}]
+
+    let result = component.getStyle({programingLanguageName: 'Javascript'});
+    expect(result).toEqual({programingLanguageName: 'JavaScript'});
   });
 });

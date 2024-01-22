@@ -128,7 +128,7 @@ export class AutoCompleteComponent {
           programingLanguageName: this.inputAutoComplete,
         };
         this.tagsSelected.push(createNewTag);
-        this.clearnput();
+        this.clearInput();
         this.alertControl('Tag add success ✔️', 'success');
       } else {
         this.alertControl('Tag already added ❕', 'warning');
@@ -138,7 +138,7 @@ export class AutoCompleteComponent {
     }
   }
 
-  clearnput() {
+  clearInput() {
     this.showList = false;
     this.inputAutoComplete = '';
     this.showClearButton = false;
@@ -150,6 +150,7 @@ export class AutoCompleteComponent {
       this.showAlert = true;
       setTimeout(() => {
         this.alert = '';
+        this.typeAlert = '';
         this.showAlert = false;
       }, 2000);
   }
